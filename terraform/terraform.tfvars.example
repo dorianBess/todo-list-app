@@ -1,0 +1,5 @@
+aws_region     = "us-east-1"
+ssh_public_key = "ssh-rsa AAAA... your-public-key-here"
+mysql_db       = "todos"
+mysql_user     = "admin"
+mysql_password = "ChangeMe123!"
