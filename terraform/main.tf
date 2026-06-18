@@ -8,13 +8,9 @@ terraform {
 }
 
 provider "aws" {
-  region = var.aws_region
+  region  = var.aws_region
+  profile = "academy"
 
-  # AWS Academy fournit des credentials temporaires (expirent toutes les 4h).
-  # Avant de lancer terraform, exporte les credentials depuis le portail Academy :
-  #   export AWS_ACCESS_KEY_ID="..."
-  #   export AWS_SECRET_ACCESS_KEY="..."
-  #   export AWS_SESSION_TOKEN="..."
   skip_metadata_api_check     = true
   skip_credentials_validation = true
 }
@@ -169,6 +165,14 @@ resource "aws_instance" "app" {
   EOF
 
   tags = { Name = "todo-app-server" }
+}
+
+# --- Elastic IP (IP fixe pour l'EC2 — survit aux redémarrages) ---
+resource "aws_eip" "app" {
+  instance = aws_instance.app.id
+  domain   = "vpc"
+
+  tags = { Name = "todo-app-eip" }
 }
 
 # --- RDS Subnet Group ---
