@@ -167,7 +167,7 @@ resource "aws_instance" "app" {
   tags = { Name = "todo-app-server" }
 }
 
-# --- Elastic IP (IP fixe pour l'EC2 — survit aux redémarrages) ---
+# --- Elastic IP ---
 resource "aws_eip" "app" {
   instance = aws_instance.app.id
   domain   = "vpc"

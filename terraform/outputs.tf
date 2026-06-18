@@ -1,10 +1,10 @@
 output "ec2_public_ip" {
-  description = "IP fixe de l'EC2 (Elastic IP) — utilise cette valeur pour EC2_HOST"
+  description = "Public IP of the EC2 instance (Elastic IP)"
   value       = aws_eip.app.public_ip
 }
 
 output "rds_endpoint" {
-  description = "RDS MySQL endpoint (use this as MYSQL_HOST)"
+  description = "RDS MySQL endpoint"
   value       = aws_db_instance.mysql.address
 }
 

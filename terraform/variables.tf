@@ -5,7 +5,7 @@ variable "aws_region" {
 }
 
 variable "ssh_public_key" {
-  description = "SSH public key content for EC2 access (paste the content of your .pub file)"
+  description = "SSH public key for EC2 access"
   type        = string
 }
 

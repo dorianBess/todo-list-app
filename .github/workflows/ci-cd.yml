@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-# NOTE AWS Academy : Terraform est exécuté MANUELLEMENT en local (credentials temporaires ~4h).
-# La CI/CD gère uniquement : tests → build image → déploiement via SSH sur l'EC2.
-# Aucun appel à l'API AWS n'est fait ici, donc pas de credentials AWS nécessaires.
-
 env:
   REGISTRY: ghcr.io
 
